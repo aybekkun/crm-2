@@ -1,0 +1,8 @@
+.table {
+  width: 100%;
+}
+
+.courses {
+  display: grid;
+  grid-template-columns: 10% 25% 25% 20% 10% 10%;
+}

@@ -1,0 +1,38 @@
+.controls {
+  padding: 20px;
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  .rooms {
+    width: 33%;
+    ul {
+      padding-left: 0;
+      list-style-type: none;
+    }
+
+    .head {
+      display: grid;
+      grid-template-columns: 20% 25% 55%;
+      text-align: center;
+      font-weight: 700;
+      height: 50px;
+      align-items: center;
+      margin: 0;
+    }
+  }
+}
+
+.addNew {
+  display: flex;
+  text-align: left;
+  justify-content: space-between;
+  align-items: center;
+  input {
+    margin-right: 20px;
+  }
+}
+
+.control {
+  display: grid;
+  grid-template-columns: 20% 65% 15%;
+}

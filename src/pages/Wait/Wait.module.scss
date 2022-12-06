@@ -1,0 +1,27 @@
+.table {
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+  .head {
+    
+    text-align: center;
+    font-weight: 700;
+    height: 50px;
+    align-items: center;
+    margin: 0;
+
+    .addNew {
+      text-align: left;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.wait {
+  display: grid;
+  grid-template-columns: 5% 12.5% 12.5% 12.5% 10% 10% 12.5% 10% 5% 5% 5%;
+}
+

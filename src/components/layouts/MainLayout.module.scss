@@ -1,0 +1,28 @@
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    'navbar header header'
+    'navbar main main'
+    'navbar footer footer';
+  grid-template-columns: 2fr 10fr;
+  grid-template-rows: 60px 1fr 60px;
+  height: calc(100vh + 100px);
+
+  .header {
+    grid-area: header;
+    z-index: 2;
+  }
+
+  .navbar {
+    grid-area: navbar;
+  }
+
+  .main {
+    grid-area: main;
+    background-color: #f1f4fa;
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+}

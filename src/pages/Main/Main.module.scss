@@ -1,0 +1,113 @@
+.main {
+  padding: 20px;
+  display: flex;
+  h2 {
+    margin-top: 10px;
+  }
+  .left {
+    width: 30%;
+    div {
+      width: 350px;
+      height: 151px;
+      border-radius: 10px;
+    }
+
+    .cardHover:hover {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      cursor: pointer;
+    }
+
+    .waits {
+      position: relative;
+      background-color: #b1f82d;
+      h2 {
+        margin-left: 30px;
+        padding-top: 30px;
+      }
+
+      .img {
+        position: absolute;
+        background-image: url('../../assets/students-main.png');
+        background-repeat: no-repeat;
+        background-size: 40%;
+        right: -200px;
+        top: 40px;
+      }
+    }
+
+    .students {
+      position: relative;
+      background-color: #b4e7f2;
+      h2 {
+        margin-left: 30px;
+        padding-top: 30px;
+      }
+
+      .img {
+        position: absolute;
+        background-image: url('../../assets/students-main.png');
+        background-repeat: no-repeat;
+        background-size: 40%;
+        right: -200px;
+        top: 40px;
+      }
+    }
+
+    .teachers {
+      position: relative;
+      background-color: #febd33;
+      h2 {
+        margin-left: 30px;
+        padding-top: 30px;
+      }
+
+      .img {
+        position: absolute;
+        background-image: url('../../assets/teachers-main.png');
+        background-repeat: no-repeat;
+        background-size: 40%;
+        right: -200px;
+        top: 40px;
+      }
+    }
+
+    .courses {
+      position: relative;
+      background-color: #bbe385;
+      h2 {
+        margin-left: 30px;
+        padding-top: 30px;
+      }
+
+      .img {
+        position: absolute;
+        background-image: url('../../assets/courses-main.png');
+        background-repeat: no-repeat;
+        background-size: 40%;
+        right: -200px;
+        top: 40px;
+      }
+    }
+
+    .groups {
+      position: relative;
+      background-color: #e368ee;
+      h2 {
+        margin-left: 30px;
+        padding-top: 30px;
+      }
+
+      .img {
+        position: absolute;
+        background-image: url('../../assets/courses-main.png');
+        background-repeat: no-repeat;
+        background-size: 40%;
+        right: -200px;
+        top: 40px;
+      }
+    }
+  }
+  .right {
+    width: 50%;
+  }
+}

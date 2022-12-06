@@ -1,0 +1,21 @@
+.group {
+  margin-top: 20px;
+  .groupInfo {
+    display: flex;
+    // flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  .lessons {
+    max-width: 100%;
+    min-width: 50%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+
+    .studentJournal {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

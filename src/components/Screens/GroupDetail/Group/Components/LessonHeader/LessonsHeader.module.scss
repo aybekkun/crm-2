@@ -1,0 +1,27 @@
+.headers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  font-size: 12px;
+
+  .name {
+    width: 150px;
+  }
+
+  .phone {
+    width: 110px;
+  }
+
+  .actions {
+    width: 70px;
+  }
+
+  .lesson {
+    width: 50px;
+  }
+
+  .dayName {
+    cursor: pointer;
+  }
+}

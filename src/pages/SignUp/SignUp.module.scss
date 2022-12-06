@@ -1,0 +1,94 @@
+.signUp {
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  justify-content: space-between;
+
+  .left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    padding: 0 20px;
+    margin-bottom: 40px;
+
+    h2 {
+      text-align: center;
+      margin: 10px 0 10px 0;
+    }
+
+    .logo {
+      width: 155px;
+      height: 130px;
+      background-image: url('../../assets/logo2.png');
+      background-repeat: no-repeat;
+    }
+
+    .form {
+      width: 80%;
+      .inputContainer {
+        margin-top: 20px;
+
+        .paragraph {
+          font-size: 18px;
+          margin: 10px 0;
+        }
+
+        input {
+          width: 100%;
+          padding: 15px;
+          width: 100%;
+          font-size: 18px;
+          border-radius: 10px;
+          border: none;
+          outline: none;
+          background-color: #f1f4fa;
+        }
+
+        .error {
+          color: red;
+        }
+      }
+
+      .button {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        button {
+          width: 80%;
+          padding: 15px;
+          background-color: #605bff;
+          color: white;
+          border-radius: 10px;
+          border: none;
+          font-size: 20px;
+        }
+
+        button:hover {
+          background-color: #8581fd;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .right {
+    width: 80%;
+    max-height: calc(100vh + 200px);
+    background-color: #f1f4fa;
+    .img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+
+      .imgInner {
+        // margin-top: 80px;
+        width: 800px;
+        height: 596px;
+        background-image: url('../../assets/reg.png');
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.filters {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 20px 0;
+
+  .totalSum {
+    margin-top: 5px;
+  }
+}

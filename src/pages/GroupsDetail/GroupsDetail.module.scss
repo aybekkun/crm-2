@@ -1,0 +1,33 @@
+.controls {
+  margin: 20px 0;
+
+  .inputs {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .inputContainer {
+    width: 190px;
+    margin-right: 40px;
+
+    .paragraph {
+      font-size: 16px;
+    }
+
+    input {
+      padding: 15px 10px;
+      font-size: 16px;
+      border-radius: 7px;
+      border: none;
+      outline: none;
+      background-color: #fff;
+    }
+  }
+
+  .select {
+    width: 210px;
+    margin-right: 20px;
+  }
+}
+
+

@@ -1,0 +1,25 @@
+.table {
+  .head {
+    text-align: center;
+    font-weight: 700;
+    height: 50px;
+    align-items: center;
+    margin: 0;
+
+    .addNew {
+      text-align: left;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.students {
+  display: grid;
+  grid-template-columns: 10% 20% 20% 20% 20% 5% 5%;
+}
+
+.payments {
+  display: grid;
+  grid-template-columns: 10% 15% 15% 15% 15% 15% 15%;
+}
