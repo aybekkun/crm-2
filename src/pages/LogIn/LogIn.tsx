@@ -2,7 +2,7 @@ import { Button, Form, Input, message } from 'antd';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import PhoneInput from 'react-phone-number-input';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { PASSWORD, PHONE } from '../../helpers/constants/form';
 import { LOGIN, MAIN } from '../../helpers/constants/routes';
 import { numberConfig, passwordConfig } from '../../helpers/constants/validateMessages';
@@ -13,10 +13,8 @@ import styles from './LogIn.module.scss';
 const LogIn = () => {
   const { t: translate } = useTranslation();
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  const { user, isUserLogin, isLoading, error } = useAppSelector((state) => state.loginReducer);
-
-  useEffect(() => {}, [dispatch]);
+  const location = useLocation();
+  const { isUserLogin, isLoading, error } = useAppSelector((state) => state.loginReducer);
 
   const onHandleCreate = (values: ILoginProps) => {
     dispatch(fetchLogin(values));
@@ -26,22 +24,12 @@ const LogIn = () => {
     message.error(translate('invalidLogin'));
   };
 
-  const checkFunction = async () => {
-    await dispatch(checkLogin());
-
-    if (isUserLogin) {
-      navigate(MAIN);
-    } else {
-      navigate(LOGIN);
-    }
-  };
-
-  useEffect(() => {
-    checkFunction();
-  }, [isUserLogin, navigate, user, dispatch]);
-
   if (error) {
     onFinishFailed();
+  }
+
+  if (isUserLogin) {
+    return <Navigate to={MAIN} state={{ from: location }} replace />;
   }
 
   return (

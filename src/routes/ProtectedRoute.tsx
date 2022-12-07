@@ -9,7 +9,7 @@ const ProtectedRoute: FC<ProtectedRouteProps> = ({ children }) => {
   const { isUserLogin } = useAppSelector((state) => state.loginReducer);
   const location = useLocation();
 
-  if (!isUserLogin) {
+  if (!Boolean(isUserLogin)) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
   return <>{children}</>;

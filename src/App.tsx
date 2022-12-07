@@ -6,12 +6,14 @@ import { useTranslation } from 'react-i18next';
 
 function App() {
   const dispatch = useAppDispatch();
-  const { isUserLogin } = useAppSelector((state) => state.loginReducer);
   const { t } = useTranslation();
 
   useEffect(() => {
-    dispatch(checkLogin());
-  }, [isUserLogin, dispatch]);
+    async function fetchCheckLogin() {
+      await dispatch(checkLogin());
+    }
+    fetchCheckLogin();
+  }, [dispatch]);
 
   return (
     <>

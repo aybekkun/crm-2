@@ -6,7 +6,7 @@ import { checkLogin } from './../thunks/loginThunk';
 interface ILoginState {
   user: ILogin | null;
   token: string | null | undefined;
-  isUserLogin: boolean;
+  isUserLogin: boolean | string;
   isLoading: boolean;
   error: string | null;
 }

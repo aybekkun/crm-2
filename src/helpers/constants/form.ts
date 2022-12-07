@@ -183,7 +183,7 @@ export const EXPENSES: constObj = {
 };
 export const EMPLOYEES: constObj = {
   eng: 'Employees',
-  rus: 'Сотридники',
+  rus: 'Сотрудники',
   kr: 'Jumisshilar',
 };
 export const COURSES: constObj = {

@@ -18,8 +18,7 @@ const SignUp = lazy(() => import('../pages/SignUp/SignUp'));
 const SignCourse = lazy(() => import('../pages/SignCourse/SignCourse'));
 
 const Routs = () => {
-  const navigate = useNavigate();
-  const { user, isUserLogin } = useAppSelector((state) => state.loginReducer);
+  const { user } = useAppSelector((state) => state.loginReducer);
 
   // useEffect(() => {
   //   if (isUserLogin === false) {
