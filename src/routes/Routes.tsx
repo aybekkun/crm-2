@@ -11,6 +11,7 @@ import {
   teachersRoutes,
 } from '../helpers/constants/routes';
 import { useAppSelector } from '../helpers/hooks/redux';
+import ProtectedRoute from './ProtectedRoute';
 
 const LogIn = lazy(() => import('../pages/LogIn/LogIn'));
 const SignUp = lazy(() => import('../pages/SignUp/SignUp'));
@@ -20,86 +21,46 @@ const Routs = () => {
   const navigate = useNavigate();
   const { user, isUserLogin } = useAppSelector((state) => state.loginReducer);
 
-  useEffect(() => {
-    if (isUserLogin === false) {
-      navigate(LOGIN);
-    }
-  }, [isUserLogin, navigate]);
-
-  if (user?.role === 'teacher') {
-    return (
-      <Routes>
-        <Route path={MAIN} element={<MainLayout />}>
-          {teachersRoutes.map(({ path, component }) => (
-            <Route
-              key={path}
-              path={path}
-              element={<Suspense fallback={<Spin />}>{component}</Suspense>}
-            />
-          ))}
-        </Route>
-        <Route
-          path={LOGIN}
-          element={
-            <Suspense fallback={<Spin />}>
-              <LogIn />
-            </Suspense>
-          }
-        />
-        <Route
-          path={SIGN_COURSE}
-          element={
-            <Suspense fallback={<Spin />}>
-              <SignCourse />
-            </Suspense>
-          }
-        />
-      </Routes>
-    );
-  }
-
-  if (user?.role === 'admin') {
-    return (
-      <Routes>
-        <Route path={MAIN} element={<MainLayout />}>
-          {adminRoutes.map(({ path, component }) => (
-            <Route
-              key={path}
-              path={path}
-              element={<Suspense fallback={<Spin />}>{component}</Suspense>}
-            />
-          ))}
-        </Route>
-        <Route
-          path={LOGIN}
-          element={
-            <Suspense fallback={<Spin />}>
-              <LogIn />
-            </Suspense>
-          }
-        />
-        <Route
-          path={SIGN_COURSE}
-          element={
-            <Suspense fallback={<Spin />}>
-              <SignCourse />
-            </Suspense>
-          }
-        />
-      </Routes>
-    );
-  }
+  // useEffect(() => {
+  //   if (isUserLogin === false) {
+  //     navigate(LOGIN);
+  //   }
+  // }, [isUserLogin, navigate]);
 
   return (
     <Routes>
-      <Route path={MAIN} element={<MainLayout />}>
-        {ceoRoutes.map(({ path, component }) => (
-          <Route
-            key={path}
-            path={path}
-            element={<Suspense fallback={<Spin />}>{component}</Suspense>}
-          />
-        ))}
+      <Route
+        path={MAIN}
+        element={
+          <ProtectedRoute>
+            <MainLayout />
+          </ProtectedRoute>
+        }
+      >
+        {user?.role === 'teacher' &&
+          teachersRoutes.map(({ path, component }) => (
+            <Route
+              key={path}
+              path={path}
+              element={<Suspense fallback={<Spin />}>{component}</Suspense>}
+            />
+          ))}
+        {user?.role === 'admin' &&
+          adminRoutes.map(({ path, component }) => (
+            <Route
+              key={path}
+              path={path}
+              element={<Suspense fallback={<Spin />}>{component}</Suspense>}
+            />
+          ))}
+        {user?.role === 'ceo' &&
+          ceoRoutes.map(({ path, component }) => (
+            <Route
+              key={path}
+              path={path}
+              element={<Suspense fallback={<Spin />}>{component}</Suspense>}
+            />
+          ))}
       </Route>
       <Route
         path={LOGIN}

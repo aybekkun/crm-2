@@ -5,10 +5,9 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.css';
 import './i18n';
-import { setupStore } from './store/store';
+import store from './store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-const store = setupStore();
 
 root.render(
   <BrowserRouter>

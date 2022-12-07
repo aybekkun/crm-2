@@ -42,6 +42,12 @@ export const loginSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+    [checkLogin.rejected.type]: (state, action: PayloadAction<ILogin>) => {
+      state.user = action.payload;
+      state.isUserLogin = false;
+      state.error = '';
+      state.isLoading = false;
+    },
     [checkLogin.fulfilled.type]: (state, action: PayloadAction<ILogin>) => {
       state.user = action.payload;
       state.isUserLogin = true;

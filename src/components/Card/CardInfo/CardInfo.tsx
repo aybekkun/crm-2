@@ -27,11 +27,11 @@ const CardInfo: FC<ICardInfoProps> = ({ data, isLoading, onDelete, onEdit }) => 
       <Avatar size={64} icon={<UserOutlined />} className={styles.avatar} />
       <Typography>
         <Text strong>{translate('name')}: </Text>
-        <Text>{data?.name.split(' ')[0]}</Text>
+        <Text>{data?.name}</Text>
       </Typography>
       <Typography>
         <Text strong>{translate('surname')}: </Text>
-        <Text>{data?.name.split(' ')[1]}</Text>
+        <Text>{data?.surname}</Text>
       </Typography>
       <Typography>
         <Text strong>{translate('phone')}: </Text>

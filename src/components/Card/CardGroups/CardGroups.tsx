@@ -14,7 +14,6 @@ interface ICardGroupProps {
 }
 
 const CardGroup: FC<ICardGroupProps> = ({ data, isLoading, title }) => {
-  console.log(data);
   return (
     <Card title={title} bordered={false} loading={isLoading} className={styles.card}>
       {data?.map((item) => {
