@@ -34,9 +34,7 @@ const ExpenseForm = () => {
 
   const onHandleCreate = async (values: IExpenseData) => {
     const salary = employeesSalary.filter((item) => item.employee_id === values.to_id);
-    console.log(employeesSalary);
-    console.log(salary);
-    console.log(values);
+
     dispatch(setModal(false));
     await dispatch(
       createExpense({

@@ -49,8 +49,6 @@ const TeacherDetail = () => {
     };
   }, [page, count, dispatch, id]);
 
-  console.log(teacher);
-
   return (
     <PageContainer name={teacher?.name}>
       <Row className={styles.row}>

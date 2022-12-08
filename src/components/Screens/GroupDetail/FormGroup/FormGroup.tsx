@@ -27,11 +27,8 @@ const FormGroup: FC<IFormGroupProps> = ({ id }) => {
   const { rooms } = useAppSelector((state) => state.roomsReducer);
   const { setCount } = countSlice.actions;
 
-  console.log(startDate);
-
   const handleCreateLessons = async (value: ICreateLessons) => {
     // const days = (values as DateObject[]).map((item: DateObject) => item.format(dateFormat));
-    console.log(startDate, id, value.start_time, value.end_time, value.room_id, whichDays);
     await dispatch(
       createLessons({
         start_date: startDate,

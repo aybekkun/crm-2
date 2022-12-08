@@ -113,7 +113,7 @@ const StudentsDetail = () => {
         </Col>
       </Row>
       <PaymentsForm student_id={student?.id} groups={student?.groups} />
-      <DiscountsForm student_id={student?.id} />
+      <DiscountsForm student_id={student?.id} groups={student?.groups} />
       <StudentsForm />
       <AddToGroup />
     </PageContainer>

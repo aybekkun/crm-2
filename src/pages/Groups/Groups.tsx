@@ -32,8 +32,6 @@ const Groups = () => {
     dispatch(setStatus(CREATE));
   };
 
-  console.log(groups);
-
   useEffect(() => {
     dispatch(fetchGroups({ page }));
   }, [page, count, dispatch]);

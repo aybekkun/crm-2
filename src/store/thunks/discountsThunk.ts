@@ -14,23 +14,41 @@ export const fetchDiscounts = createAsyncThunk(
 );
 
 export interface createDiscountProps {
+  name: string | 'multigroup' | 'simple' | 'family';
   student_id?: number;
-  sum?: number;
-  comment?: string;
+  price?: number;
+  percent?: number;
   start_date: string | moment.Moment;
   end_date: string | moment.Moment;
+  course_ids: number[] | number;
+  comment?: string;
 }
 
 export const createDiscount = createAsyncThunk(
   'discount/createDiscount',
-  async ({ student_id, sum, start_date, comment, end_date }: createDiscountProps, thunkAPI) => {
+  async (
+    {
+      name,
+      student_id,
+      price,
+      percent,
+      start_date,
+      end_date,
+      course_ids,
+      comment,
+    }: createDiscountProps,
+    thunkAPI
+  ) => {
     try {
       const response = await $authHost.post(`discounts`, {
+        name,
         student_id,
-        sum,
-        comment,
+        price,
+        percent,
         start_date,
         end_date,
+        course_ids,
+        comment,
       });
     } catch (e) {
       return thunkAPI.rejectWithValue('Не удалось создать курсов');

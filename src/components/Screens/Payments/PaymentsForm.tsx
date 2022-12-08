@@ -42,7 +42,6 @@ const PaymentForm: FC<IPaymentFormProps> = ({ student_id, groups }) => {
       student_id: student_id,
       date: (values['date'] as moment.Moment).format(dateFormat),
     };
-    console.log(createPaymentsValues);
     const returnPaymentValues = {
       ...values,
       sum: -values.sum,
