@@ -13,43 +13,40 @@ export const fetchDiscounts = createAsyncThunk(
   }
 );
 
+export const fetchFamily = createAsyncThunk(
+  'discount/fetchDiscount',
+  async (surname: string, thunkAPI) => {
+    try {
+      const response = await $authHost.post(`family_d_search`, {
+        surname,
+      });
+      return response.data.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue('Не удалось создать курсов');
+    }
+  }
+);
+
 export interface createDiscountProps {
   name: string | 'multigroup' | 'simple' | 'family';
-  student_id?: number;
+  student_id?: number[] | number | undefined;
   price?: number;
-  percent?: number;
-  start_date: string | moment.Moment;
-  end_date: string | moment.Moment;
-  course_ids: number[] | number;
+  start_date?: string | moment.Moment;
+  end_date?: string | moment.Moment | null;
+  group_id?: number[] | number | null;
   comment?: string;
+  relative?: number[];
 }
 
 export const createDiscount = createAsyncThunk(
   'discount/createDiscount',
-  async (
-    {
-      name,
-      student_id,
-      price,
-      percent,
-      start_date,
-      end_date,
-      course_ids,
-      comment,
-    }: createDiscountProps,
-    thunkAPI
-  ) => {
+  async (createDiscountsValues: createDiscountProps, thunkAPI) => {
+    console.log('wrong ' + createDiscountsValues);
     try {
       const response = await $authHost.post(`discounts`, {
-        name,
-        student_id,
-        price,
-        percent,
-        start_date,
-        end_date,
-        course_ids,
-        comment,
+        ...createDiscountsValues,
       });
+      console.log(createDiscountsValues);
     } catch (e) {
       return thunkAPI.rejectWithValue('Не удалось создать курсов');
     }

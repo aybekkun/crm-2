@@ -16,7 +16,13 @@ interface IPaymentsItemProps {
 
 const PaymentsItem: FC<IPaymentsItemProps> = ({ item, isLoading, onReturnPayment }) => {
   const { t: translate } = useTranslation();
+
   const studentDetailColumns: ColumnsType<IPaymentData> = [
+    {
+      title: translate('name'),
+      dataIndex: 'student',
+      key: 'student',
+    },
     {
       title: translate('group'),
       dataIndex: GROUP_NAME.eng,

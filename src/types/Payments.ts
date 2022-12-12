@@ -8,6 +8,7 @@ export interface IPayments extends IPagination {
 export interface IPaymentData {
   id?: number;
   student_name?: string;
+  student?: string;
   student_id: number;
   group_name?: string;
   group_id: number;
