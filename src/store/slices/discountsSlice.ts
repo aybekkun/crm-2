@@ -1,21 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IDiscounts, IDiscountsData } from '../../types/Discounts';
-import { fetchDiscounts, fetchFamily } from '../thunks/discountsThunk';
-interface IFamilyData {
-  student_id: number;
-  name?: string;
-  surname?: string;
-  phone?: string;
-  gender?: string | null;
-  birthday?: string | null;
-  address?: string | null;
-  created_at?: string | null;
-  updated_at?: string | null;
-  deleted_at?: string | null;
-}
+import { fetchDiscounts } from '../thunks/discountsThunk';
+// interface IFamilyData {
+//   student_id: number;
+//   name?: string;
+//   surname?: string;
+//   phone?: string;
+//   gender?: string | null;
+//   birthday?: string | null;
+//   address?: string | null;
+//   created_at?: string | null;
+//   updated_at?: string | null;
+//   deleted_at?: string | null;
+// }
 interface IDiscountsState {
   discounts: IDiscounts;
-  family: IFamilyData[];
+  // family: IFamilyData[];
   modal: boolean;
   count: number;
   error: string;
@@ -24,7 +24,7 @@ interface IDiscountsState {
 
 const initialState: IDiscountsState = {
   discounts: { data: [], total: 1 },
-  family: [],
+  // family: [],
   modal: false,
   count: 0,
   error: '',
@@ -55,13 +55,13 @@ export const discountsSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
-    [fetchFamily.fulfilled.type]: (state, action: PayloadAction<IFamilyData[]>) => {
-      state.family = action.payload;
-    },
-    [fetchFamily.pending.type]: (state) => {},
-    [fetchFamily.rejected.type]: (state, action: PayloadAction<string>) => {
-      state.error = action.payload;
-    },
+    // [fetchFamily.fulfilled.type]: (state, action: PayloadAction<IFamilyData[]>) => {
+    //   state.family = action.payload;
+    // },
+    // [fetchFamily.pending.type]: (state) => {},
+    // [fetchFamily.rejected.type]: (state, action: PayloadAction<string>) => {
+    //   state.error = action.payload;
+    // },
   },
 });
 

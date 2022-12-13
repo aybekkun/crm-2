@@ -13,7 +13,7 @@ export const fetchDiscounts = createAsyncThunk(
   }
 );
 
-export const fetchFamily = createAsyncThunk(
+/* export const fetchFamily = createAsyncThunk(
   'discount/fetchDiscount',
   async (surname: string, thunkAPI) => {
     try {
@@ -26,27 +26,23 @@ export const fetchFamily = createAsyncThunk(
     }
   }
 );
-
+ */
 export interface createDiscountProps {
-  name: string | 'multigroup' | 'simple' | 'family';
   student_id?: number[] | number | undefined;
-  price?: number;
+  sum?: number;
   start_date?: string | moment.Moment;
   end_date?: string | moment.Moment | null;
   group_id?: number[] | number | null;
   comment?: string;
-  relative?: number[];
 }
 
 export const createDiscount = createAsyncThunk(
   'discount/createDiscount',
   async (createDiscountsValues: createDiscountProps, thunkAPI) => {
-    console.log('wrong ' + createDiscountsValues);
     try {
       const response = await $authHost.post(`discounts`, {
         ...createDiscountsValues,
       });
-      console.log(createDiscountsValues);
     } catch (e) {
       return thunkAPI.rejectWithValue('Не удалось создать курсов');
     }
@@ -55,14 +51,13 @@ export const createDiscount = createAsyncThunk(
 
 export interface stopDiscountProps {
   id: number;
-  end_date: string | moment.Moment;
 }
 
 export const stopDiscount = createAsyncThunk(
   'discount/stopDiscount',
-  async ({ id, end_date }: stopDiscountProps, thunkAPI) => {
+  async ({ id }: stopDiscountProps, thunkAPI) => {
     try {
-      const response = await $authHost.put(`discounts_stop/${id}`, { end_date });
+      const response = await $authHost.delete(`discounts/${id}`);
     } catch (e) {
       return thunkAPI.rejectWithValue('Не удалось создать курсов');
     }

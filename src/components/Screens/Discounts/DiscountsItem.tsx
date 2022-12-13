@@ -18,17 +18,22 @@ const DiscountsItem = ({ id }: { id: number | undefined }) => {
   const { setCount } = discountsSlice.actions;
   const [idDiscount, setIdDiscount] = useState<number>(1);
 
-  const onChange: DatePickerProps['onChange'] = (date, dateString) => {
-    dispatch(stopDiscount({ id: idDiscount, end_date: dateString }));
-
+  const onStopDiscount = async (id: number) => {
+    await dispatch(stopDiscount({ id }));
     dispatch(setCount(1));
   };
 
-  const content = (
-    <div>
-      <DatePicker onChange={onChange} />
-    </div>
-  );
+  // const onChange: DatePickerProps['onChange'] = (date, dateString) => {
+  //   dispatch(stopDiscount({ id: idDiscount }));
+
+  //   dispatch(setCount(1));
+  // };
+
+  // const content = (
+  //   <div>
+  //     <DatePicker onChange={onChange} />
+  //   </div>
+  // );
 
   useEffect(() => {
     dispatch(fetchDiscounts(id!));
@@ -37,8 +42,8 @@ const DiscountsItem = ({ id }: { id: number | undefined }) => {
   const studentDetailColumns: ColumnsType<IDiscountsData> = [
     {
       title: translate('price'),
-      dataIndex: PRICE.eng,
-      key: PRICE.eng,
+      dataIndex: 'sum',
+      key: 'sum',
       // render: (_, record) => <div>{PRICE.eng}</div>,
     },
     {
@@ -60,14 +65,10 @@ const DiscountsItem = ({ id }: { id: number | undefined }) => {
     },
     {
       title: translate('action'),
-      dataIndex: '',
+      dataIndex: 'id',
       key: 'x',
       width: '15%',
-      render: (_, record) => (
-        <Popover content={content} title="Остановить скидку" trigger="click">
-          <StopOutlined onClick={() => setIdDiscount(record.id)} />
-        </Popover>
-      ),
+      render: (value) => <StopOutlined onClick={() => onStopDiscount(value)} />,
     },
   ];
   return (
